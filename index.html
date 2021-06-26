@@ -7,17 +7,18 @@
 	<title>Library</title>
 </head>
 <body>
+	<button type="button" id="openForm">Add a book</button>
 	<div id="bookDisplay">
 		<div id='book'>wow</div>
 	</div>
-	<form id="bookForm" onsubmit="return false">
-		<label for="author">Author:</label><br>
+	<form id="bookForm" class="hidden" onsubmit="return false">
+		<label for="author">Author</label><br>
 		<input type="text" id="author" name="author"><br><br>
-		<label for="title">Title:</label><br>
+		<label for="title">Title</label><br>
 		<input type="text" id="title" name="title"><br><br>
-		<label for="pages">Number of pages:</label><br>
+		<label for="pages">Number of pages</label><br>
 		<input type="text" id="pages" name="pages"><br><br>
-		<label for="read">Read:</label><br>
+		<label for="read">Read</label>
 		<input type="checkbox" id="read" name="read"><br><br>
 		<input type="submit" value="Submit">
 	</form> 

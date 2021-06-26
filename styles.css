@@ -1,3 +1,11 @@
+.hidden {
+    display:none;
+}
+
+button, input[type=submit] {
+    padding:1%;
+}
+
 #book {
     border: solid;
 }
@@ -8,6 +16,14 @@
     left: 50%;
     top: 5%;
     transform: translate(-50%, 5%);
-    border: 3px solid #999999;
+    border: 1px groove;
     z-index: 9;
+    background-color:whitesmoke;
+    padding:5%;
+    border-radius: 3%;
 }
+
+#bookForm input {
+    padding:3%;
+}
+
