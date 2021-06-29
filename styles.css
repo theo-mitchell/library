@@ -27,3 +27,16 @@ button, input[type=submit] {
     padding:3%;
 }
 
+#bookDisplay {
+    display:grid;
+    grid-template-columns: 20% 20% 20%;
+    grid-gap: 2%;
+}
+
+
+.closeIcon {
+    content: url("../img/remove.png");
+    /* width: 100px;
+    height:  100px; */
+    background-color: red;
+}
