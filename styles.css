@@ -33,10 +33,3 @@ button, input[type=submit] {
     grid-gap: 2%;
 }
 
-
-.closeIcon {
-    content: url("../img/remove.png");
-    /* width: 100px;
-    height:  100px; */
-    background-color: red;
-}

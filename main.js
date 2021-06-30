@@ -8,8 +8,8 @@ function Book(author, title, pages, read) {
 }
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
+    let letters = '0123456789ABCDEF';
+    let color = '#';
     for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
@@ -19,9 +19,16 @@ function getRandomColor() {
 function makeABookForDisplay(book){
     let bookDiv = document.createElement('div');
     bookDiv.id = "book";
-    const text = `Author: ${book.author} \nTitle: ${book.title}\n Pages: ${book.pages}\n Read: ${book.read}`;
-    bookDiv.innerText = text;
     bookDiv.style.backgroundColor = getRandomColor();
+
+    const closeIcon = document.createElement('span');
+    closeIcon.classList.add("fas");
+    closeIcon.classList.add("fa-window-close");
+    closeIcon.classList.add("deleteBook");
+
+    const text = document.createTextNode(`Author: ${book.author} \nTitle: ${book.title}\n Pages: ${book.pages}\n Read: ${book.read}`);
+
+    bookDiv.append(closeIcon,text);
 
     return bookDiv;
 }
