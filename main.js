@@ -16,18 +16,32 @@ function getRandomColor() {
     return color;
 }
 
+function deleteBook(event) {
+    let bookToDelete = event.target.parentNode;
+
+    //Using delete and not splice to preserve id uniqueness. 
+    delete myLibrary[bookToDelete.dataset.id];
+    bookToDelete.remove();
+    console.log(myLibrary);
+}
+
 function makeABookForDisplay(book){
     let bookDiv = document.createElement('div');
     bookDiv.id = "book";
     bookDiv.style.backgroundColor = getRandomColor();
 
+    //We know that the book we are making for display is always neccecarily the last one in the array. 
+    //Hence, this works as a simple way to get it's id.
+    let bookId = myLibrary.length - 1;
+    bookDiv.setAttribute("data-id", bookId);
+
     const closeIcon = document.createElement('span');
     closeIcon.classList.add("fas");
     closeIcon.classList.add("fa-window-close");
     closeIcon.classList.add("deleteBook");
+    closeIcon.addEventListener('click', deleteBook);
 
     const text = document.createTextNode(`Author: ${book.author} \nTitle: ${book.title}\n Pages: ${book.pages}\n Read: ${book.read}`);
-
     bookDiv.append(closeIcon,text);
 
     return bookDiv;
