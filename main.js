@@ -1,10 +1,13 @@
-let myLibrary = [];
+const myLibrary = [];
+let bookId = myLibrary[myLibrary.length - 1] !== undefined ?  myLibrary[myLibrary.length - 1].id + 1 : 0;
+console.log(bookId);
 
-function Book(author, title, pages, read) {
+function Book(author, title, pages, read, id) {
     this.author = author,
     this.title = title;
     this.pages = pages;
     this.read = read;
+    this.id = id;
 }
 
 function getRandomColor() {
@@ -19,21 +22,19 @@ function getRandomColor() {
 function deleteBook(event) {
     let bookToDelete = event.target.parentNode;
 
-    //Using delete and not splice to preserve id uniqueness. 
-    delete myLibrary[bookToDelete.dataset.id];
+    let myLibraryIndexToDelete = myLibrary.findIndex(function(o){
+        return o.id === parseInt(bookToDelete.dataset.id);
+    });
+    if (myLibraryIndexToDelete !== -1) myLibrary.splice(myLibraryIndexToDelete);
+
     bookToDelete.remove();
-    console.log(myLibrary);
 }
 
-function makeABookForDisplay(book){
+function makeBookForDisplay(book){
     let bookDiv = document.createElement('div');
     bookDiv.id = "book";
     bookDiv.style.backgroundColor = getRandomColor();
-
-    //We know that the book we are making for display is always neccecarily the last one in the array. 
-    //Hence, this works as a simple way to get it's id.
-    let bookId = myLibrary.length - 1;
-    bookDiv.setAttribute("data-id", bookId);
+    bookDiv.setAttribute("data-id", book.id);
 
     const closeIcon = document.createElement('span');
     closeIcon.classList.add("fas");
@@ -57,12 +58,12 @@ function addBookToLibrary(event) {
     bookForm.reset();
     toggleForm();
 
-    let book = new Book(author, title, pages, read);
+    let book = new Book(author, title, pages, read, bookId);
     myLibrary.push(book);
+    ++bookId;
     console.log(myLibrary);
 
-    bookDisplay.appendChild(makeABookForDisplay(book));
-
+    bookDisplay.appendChild(makeBookForDisplay(book));
 }
 
 function toggleForm(){
