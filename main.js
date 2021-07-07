@@ -1,6 +1,10 @@
 const myLibrary = [];
+
+let boo = JSON.parse(localStorage.getItem("myLibrary"));
+console.table(boo);
+console.log(typeof boo);
+
 let bookId = myLibrary[myLibrary.length - 1] !== undefined ?  myLibrary[myLibrary.length - 1].id + 1 : 0;
-console.log(bookId);
 
 function Book(author, title, pages, read, id) {
     this.author = author,
@@ -25,9 +29,11 @@ function deleteBook(event) {
     let myLibraryIndexToDelete = myLibrary.findIndex(function(o){
         return o.id === parseInt(bookToDelete.dataset.id);
     });
-    if (myLibraryIndexToDelete !== -1) myLibrary.splice(myLibraryIndexToDelete);
+    if (myLibraryIndexToDelete !== -1) myLibrary.splice(myLibraryIndexToDelete,1);
 
     bookToDelete.remove();
+
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 function makeBookForDisplay(book){
@@ -61,9 +67,11 @@ function addBookToLibrary(event) {
     let book = new Book(author, title, pages, read, bookId);
     myLibrary.push(book);
     ++bookId;
+
     console.log(myLibrary);
 
     bookDisplay.appendChild(makeBookForDisplay(book));
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 function toggleForm(){
