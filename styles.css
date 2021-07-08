@@ -1,9 +1,22 @@
+body {
+    background-color: black;
+    font-family: 'Roboto Mono', monospace;
+}
+
+ul li{
+    list-style-type: none;
+}
+
 .hidden {
     display:none;
 }
 
 button, input[type=submit] {
     padding:1%;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 0%;
+    background-color: black;
+    color:white;
 }
 
 #book {
@@ -11,16 +24,15 @@ button, input[type=submit] {
 }
 
 #bookForm {
-    /* display: none; */
     position: fixed;
     left: 50%;
     top: 5%;
+    padding: 10%;
     transform: translate(-50%, 5%);
-    border: 1px groove;
+    border: 1px groove white;
     z-index: 9;
-    background-color:whitesmoke;
-    padding:5%;
-    border-radius: 3%;
+    background-color:black;
+    color:white;
 }
 
 #bookForm input {
@@ -31,5 +43,14 @@ button, input[type=submit] {
     display:grid;
     grid-template-columns: 20% 20% 20%;
     grid-gap: 2%;
+    justify-content: center;
+    overflow-wrap: break-word;
 }
 
+#book {
+    color: white;
+}
+
+.deleteBook {
+    margin-left: 1%;
+}

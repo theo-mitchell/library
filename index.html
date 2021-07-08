@@ -3,7 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://kit.fontawesome.com/7e07a5336c.js" crossorigin="anonymous"></script>
+	<script rel="preload" src="https://kit.fontawesome.com/7e07a5336c.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
 	<title>Library</title>
 </head>
@@ -17,15 +20,15 @@
 	</div>
 	<form id="bookForm" class="hidden" onsubmit="return false">
 		<label for="author">Author</label><br>
-		<input type="text" id="author" name="author"><br><br>
+		<input type="text" id="author" name="author" required><br><br>
 		<label for="title">Title</label><br>
-		<input type="text" id="title" name="title"><br><br>
+		<input type="text" id="title" name="title" required><br><br>
 		<label for="pages">Number of pages</label><br>
 		<input type="text" id="pages" name="pages"><br><br>
 		<label for="read">Read</label>
 		<input type="checkbox" id="read" name="read"><br><br>
 		<input type="submit" value="Submit">
 	</form> 
-	<script src="main.js"></script>
+	<script  src="main.js"></script>
 </body>
 </html>

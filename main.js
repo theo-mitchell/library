@@ -15,13 +15,15 @@ if (myLibrary.length > 0) {
     }
 }
 
-function Book(id, author, title, pages, read, coverColor) {
-    this.id = id;
-    this.author = author,
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-    this.coverColor = coverColor;
+class Book {
+    constructor(id, author, title, pages, read, coverColor) {
+        this.id = id;
+        this.author = author,
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+        this.coverColor = coverColor;
+    }
 }
 
 function getRandomColor() {
